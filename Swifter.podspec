@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Swifter"
-  s.version      = "1.2.1"
+  s.version      = "1.2.4"
   s.summary      = "A Twitter framework for iOS & OS X written in Swift."
   s.homepage     = "https://github.com/mattdonnelly/Swifter"
 
