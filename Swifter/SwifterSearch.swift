@@ -25,7 +25,7 @@
 
 import Foundation
 
-extension Swifter {
+public extension Swifter {
 
     //	GET		search/tweets
     public func getSearchTweetsWithQuery(q: String, geocode: String?, lang: String?, locale: String?, resultType: String?, count: Int?, until: String?, sinceID: Int?, maxID: Int?, includeEntities: Bool?, callback: String?, success: ((statuses: [JSONValue]?, searchMetadata: Dictionary<String, JSONValue>?) -> Void)?, failure: FailureHandler) {
@@ -34,34 +34,34 @@ extension Swifter {
         var parameters = Dictionary<String, AnyObject>()
         parameters["q"] = q
 
-        if geocode {
+        if geocode != nil {
             parameters["geocode"] = geocode!
         }
-        if lang {
+        if lang != nil {
             parameters["lang"] = lang!
         }
-        if locale {
+        if locale != nil {
             parameters["locale"] = locale!
         }
-        if resultType {
+        if resultType != nil {
             parameters["result_type"] = resultType!
         }
-        if count {
+        if count != nil {
             parameters["count"] = count!
         }
-        if until {
+        if until != nil {
             parameters["until"] = until!
         }
-        if sinceID {
+        if sinceID != nil {
             parameters["since_id"] = sinceID!
         }
-        if maxID {
+        if maxID != nil {
             parameters["max_id"] = maxID!
         }
-        if includeEntities {
+        if includeEntities != nil {
             parameters["include_entities"] = includeEntities!
         }
-        if callback {
+        if callback != nil {
             parameters["callback"] = callback!
         }
 

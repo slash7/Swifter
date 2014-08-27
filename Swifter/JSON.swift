@@ -110,7 +110,7 @@ public enum JSON : Equatable, Printable {
             case let array as NSArray:
                 var newArray : [JSONValue] = []
                 for item : AnyObject in array {
-                    newArray += JSON(item)
+                    newArray.append(JSON(item))
                 }
                 self = .JSONArray(newArray)
                 
@@ -240,7 +240,7 @@ public enum JSON : Equatable, Printable {
     static func parseJSONData(jsonData : NSData, error: NSErrorPointer) -> JSON? {
         var JSONObject : AnyObject! = NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers, error: error)
 
-        return !(JSONObject) ? nil : JSON(JSONObject)
+        return (JSONObject == nil) ? nil : JSON(JSONObject)
     }
 
     static func parseJSONString(jsonString : String, error: NSErrorPointer) -> JSON? {
@@ -331,9 +331,9 @@ extension JSON: Printable {
 
 }
 
-extension JSONValue: LogicValue {
+extension JSONValue: BooleanType {
 
-    public func getLogicValue() -> Bool {
+    public var boolValue: Bool {
         switch self {
         case .JSONInvalid:
             return false
